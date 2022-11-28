@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+   
+    </head>
+    <canvas id="canvas" width=1000 height=1000 onclick="applyChoices()"></canvas>
+    <br>
+    <label for="rows">width</label>
+    <input type="text" id="width" name="rows" >
+    <label for="rows">height</label>
+    <input type="text" id="height" name="cols">
+    <label for="rows">rows</label>
+    <input type="text" id="rows" name="rows" >
+    <label for="rows">cols</label>
+    <input type="text" id="cols" name="cols">
+    <label for="delay">delay</label>
+    <input type="text" id="delay" name="delay">
+    <br>
+    <button onclick="newRedFilter()"> new red   filter</button>
+    <button onclick="newGreenFilter()"> new green filter</button>
+    <button onclick="newBlueFilter()"> new blue  filter</button>
+    <button onclick="seedCurrentCells()"> seed cells</button>
+    <button onclick="resetFilters()"> reset filters</button>
+    <button onclick="toggleHeavyMode()"> toggle heavy </button>
+    <button onclick="toggleMonochrome()"> toggle monchrome </button>
+    <button onclick="togglePosterized()"> toggle posterized </button>
+    <br>
+    <div> Click animation to apply changes. Here's the <a href="https://github.com/scttzwdrff/fflo-js"> source code. </a> </div>
+    <script src="filter.js"></script>
+    <script src="global.js"></script>
+    <script src="manager.js"></script>
+    <script src="world.js"></script>
+    <script src="plot.js"></script>
+    <script src="input.js"></script>
+    <script src="main.js"></script>
+    
+</html>
