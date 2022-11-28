@@ -10,9 +10,7 @@ function seedLayer(layer : number[]) {
 }
 
 function seedCurrentCells() {
-    seedLayer(red_layer);
-    seedLayer(green_layer);
-    seedLayer(blue_layer);
+
 }
 
 

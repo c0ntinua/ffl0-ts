@@ -31,15 +31,12 @@ function randomSeededFilter() {
     seedFilter(filter);
     return filter;
 }
-
-function newRedFilter() {
-    red_filter = randomSeededFilter();
-}
-function newGreenFilter() {
-    green_filter = randomSeededFilter();
-}
-function newBlueFilter() {
-    blue_filter = randomSeededFilter();
+function randomFilterSystem(num_filters : number) : Filter[] {
+    let filter_system = [];
+    for (let i = 0; i < num_filters; i++) {
+        filter_system.push(randomSeededFilter());
+    }
+    return filter_system;
 }
 
 function applyFilterCell(filter :  Filter, layer : number[], col : number, row : number) {
@@ -60,14 +57,9 @@ function applyFilterCell(filter :  Filter, layer : number[], col : number, row :
             sum += layer[target_index]*filter.cells[c*filter.rows + r];
         }
     }
-    // let sum = randomFloat();
-    return Math.tanh(sum);
-
-    // switch (filter.transfer_code) {
-    //     case 0 : return Math.tanh(sum);
-    //     case 1 : return  Math.sin(Math.PI * sum);
-
-    // }
+    //return 2*((sum**2)%0.5 - .25);
+    //return Math.tanh(sum);
+    return sum/num_layers;
 }
 
 function applyFilter(filter : Filter, layer : number[]) : number[] {
@@ -79,3 +71,8 @@ function applyFilter(filter : Filter, layer : number[]) : number[] {
     }
     return workspace;
 }
+
+
+// function roll(x) {
+//     return 2*(x%0.5 - .25);
+// }

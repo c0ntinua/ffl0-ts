@@ -5,7 +5,8 @@
       "removeComments": true,
       "preserveConstEnums": true,
       "sourceMap": true,
-      "target": "es6"
+      "target": "es6",
+      "outDir": "public",
     },
     "files": [
         "world.ts",
@@ -15,5 +16,6 @@
         "input.ts",
         "manager.ts",
         "filter.ts",
+        "layer.ts",
     ]
   }

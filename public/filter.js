@@ -22,14 +22,12 @@ function randomSeededFilter() {
     seedFilter(filter);
     return filter;
 }
-function newRedFilter() {
-    red_filter = randomSeededFilter();
-}
-function newGreenFilter() {
-    green_filter = randomSeededFilter();
-}
-function newBlueFilter() {
-    blue_filter = randomSeededFilter();
+function randomFilterSystem(num_filters) {
+    let filter_system = [];
+    for (let i = 0; i < num_filters; i++) {
+        filter_system.push(randomSeededFilter());
+    }
+    return filter_system;
 }
 function applyFilterCell(filter, layer, col, row) {
     let sum = 0;
@@ -49,7 +47,7 @@ function applyFilterCell(filter, layer, col, row) {
             sum += layer[target_index] * filter.cells[c * filter.rows + r];
         }
     }
-    return Math.tanh(sum);
+    return sum / num_layers;
 }
 function applyFilter(filter, layer) {
     let workspace = new Array(global_rows * global_cols).fill(0);

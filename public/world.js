@@ -6,9 +6,6 @@ function seedLayer(layer) {
     }
 }
 function seedCurrentCells() {
-    seedLayer(red_layer);
-    seedLayer(green_layer);
-    seedLayer(blue_layer);
 }
 function randomFloat() {
     return 1.0 - 2.0 * Math.random();

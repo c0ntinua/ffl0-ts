@@ -1,28 +1,16 @@
 let canvas = document.getElementById("canvas") as HTMLCanvasElement;
 let pen = canvas.getContext("2d");
-let global_rows = 100;
-let global_cols = 300;
-let pixel_height  = canvas.height/global_rows;
-let pixel_width   = canvas.width/global_cols;
-let red_layer = new Array(global_rows*global_cols).fill(0);
-let green_layer = new Array(global_rows*global_cols).fill(0);
-let blue_layer = new Array(global_rows*global_cols).fill(0);
+
+let global_rows = 100;let global_cols = 300;
+
+let num_layers = 3;let layer_system = randomLayerSystem(num_layers);
+let num_filters = 12;let filter_system = randomFilterSystem(num_filters);
+
+let pixel_height  = Math.floor(canvas.height/global_rows);
+let pixel_width   = Math.floor(canvas.width/global_cols);
+
 let inc = 2.0/255.0;
-// let red_filter = newFilter(9,9);
-// let green_filter = newFilter(13,13);
-// let blue_filter = newFilter(5,5);
-let red_filter = randomSeededFilter();
-let green_filter = randomSeededFilter();
-let blue_filter = randomSeededFilter();
-let red_filter_heavy = randomSeededFilter();
-let green_filter_heavy = randomSeededFilter();
-let blue_filter_heavy = randomSeededFilter();
-let red_filter_alt = randomSeededFilter();
-let green_filter_alt = randomSeededFilter();
-let blue_filter_alt = randomSeededFilter();
-let red_filter_max = randomSeededFilter();
-let green_filter_max = randomSeededFilter();
-let blue_filter_max = randomSeededFilter();
+
 let delay = 100;
 let heavy_mode = true;
 let monochrome = true;
