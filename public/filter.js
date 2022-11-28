@@ -15,8 +15,8 @@ function seedFilter(filter) {
     }
 }
 function randomSeededFilter() {
-    let rows = Math.floor(Math.random() * 11 + 2);
-    let cols = Math.floor(Math.random() * 11 + 2);
+    let rows = Math.floor(Math.random() * filter_span + 1);
+    let cols = Math.floor(Math.random() * filter_span + 1);
     let transfer_code = Math.floor(Math.random() * 2);
     let filter = newFilter(cols, rows, transfer_code);
     seedFilter(filter);
@@ -47,7 +47,7 @@ function applyFilterCell(filter, layer, col, row) {
             sum += layer[target_index] * filter.cells[c * filter.rows + r];
         }
     }
-    return sum / num_layers;
+    return Math.tanh(sum);
 }
 function applyFilter(filter, layer) {
     let workspace = new Array(global_rows * global_cols).fill(0);

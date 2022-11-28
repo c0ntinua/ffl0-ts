@@ -28,11 +28,10 @@
     <input type="text" id="layers">
 
     <label for="filters">filters</label>
-    <input type="text" id="filters">
+    <input type="text" id="filters" onclick="getFilters();">
     <br>
     <button onclick="layer_system = randomLayerSystem(num_layers);"> seed </button>
     <button onclick="filter_system = randomFilterSystem(num_filters);"> new filters</button>
-    <button onclick="toggleMonochrome()"> toggle monchrome </button>
     <button onclick="togglePosterized()"> toggle posterized </button>
     <br>
     <div> Click animation to apply changes. Here's the <a href="https://github.com/scttzwdrff/fflo-js"> source code. </a> </div>

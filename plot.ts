@@ -21,7 +21,7 @@ function plotMonochrome() {
             if (!posterized) {
                 pen.fillStyle = color_string(m,m,m);
             } else {
-                m = (m > 127 ? 255 : 0);
+                m = (m > boundary ? 255 : 0);
                 pen.fillStyle = color_string(m,m,m);
             }
             pen.beginPath();
