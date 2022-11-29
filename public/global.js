@@ -17,4 +17,5 @@ let posterized = true;
 let boundary = 127;
 let alt_mode = false;
 let max_mode = true;
+let clock = 0;
 //# sourceMappingURL=global.js.map

@@ -8,6 +8,8 @@ let num_filters = 12;let filter_system = randomFilterSystem(num_filters);
 
 let pixel_height  = Math.floor(canvas.height/global_rows);
 let pixel_width   = Math.floor(canvas.width/global_cols);
+let hue_field = new Uint8Array(global_rows*global_cols);
+
 
 let inc = 2.0/255.0;
 
@@ -20,6 +22,8 @@ let posterized = true;
 let boundary = 127;
 let alt_mode = false;
 let max_mode = true;
+
+let clock = 0;
 
 
 

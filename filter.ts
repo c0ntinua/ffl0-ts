@@ -1,5 +1,5 @@
 type Filter = {
-    cells : number[],
+    cells : Float64Array,
     cols : number,
     rows : number,
     transfer_code : number,
@@ -7,7 +7,7 @@ type Filter = {
 
 function newFilter(cols : number, rows : number, transfer_code : number) : Filter  {
     let f : Filter = {
-        cells : new Array(cols*rows).fill(0),
+        cells : new Float64Array(cols*rows),
         cols : cols,
         rows : rows,
         transfer_code : transfer_code,
@@ -39,7 +39,7 @@ function randomFilterSystem(num_filters : number) : Filter[] {
     return filter_system;
 }
 
-function applyFilterCell(filter :  Filter, layer : number[], col : number, row : number) {
+function applyFilterCell(filter : Filter, layer : Layer, col : number, row : number) {
     let sum = 0;
     let counter = 0;
     let this_row = 0;
@@ -62,8 +62,8 @@ function applyFilterCell(filter :  Filter, layer : number[], col : number, row :
     //return sum/num_layers;
 }
 
-function applyFilter(filter : Filter, layer : number[]) : number[] {
-    let workspace = new Array(global_rows*global_cols).fill(0);
+function applyFilter(filter : Filter, layer : Layer) : Layer {
+    let workspace = new Float64Array(global_cols*global_rows);
     for (let c = 0; c < global_cols; c++) {
         for (let r = 0; r < global_rows; r++) {
             workspace[c*global_rows + r ] = applyFilterCell(filter, layer, c, r);

@@ -1,6 +1,6 @@
 function newFilter(cols, rows, transfer_code) {
     let f = {
-        cells: new Array(cols * rows).fill(0),
+        cells: new Float64Array(cols * rows),
         cols: cols,
         rows: rows,
         transfer_code: transfer_code,
@@ -50,7 +50,7 @@ function applyFilterCell(filter, layer, col, row) {
     return Math.tanh(sum);
 }
 function applyFilter(filter, layer) {
-    let workspace = new Array(global_rows * global_cols).fill(0);
+    let workspace = new Float64Array(global_cols * global_rows);
     for (let c = 0; c < global_cols; c++) {
         for (let r = 0; r < global_rows; r++) {
             workspace[c * global_rows + r] = applyFilterCell(filter, layer, c, r);

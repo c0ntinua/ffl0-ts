@@ -30,3 +30,30 @@ function plotMonochrome() {
         }
     }
 }
+function preparePlot() {
+    let inc = 2.0/256.0;
+    let raw_sum = 0.0;
+    for (let col = 0; col < global_cols; col++) {
+        for (let row = 0; row < global_rows; row++) {
+            raw_sum = 0;
+            for (let l = 0; l < num_layers; l++) {
+                raw_sum += layer_system[l][col * global_rows + row];
+            }
+            hue_field[col * global_rows + row] = float_to_integer(raw_sum/num_layers);      
+        }
+    }
+}
+function performPlot() {
+    let m = 0;
+    for (let col = 0; col < global_cols; col++) {
+        for (let row = 0; row < global_rows; row++) {
+            let m = hue_field[col * global_rows + row]; 
+            if (posterized)  m = (m > boundary ? 255 : 0);
+            pen.fillStyle = color_string(m,m,m);
+            pen.beginPath();
+            pen.rect(col*pixel_width, row*pixel_height, pixel_width, pixel_height);
+            pen.fill();
+        }
+    }
+
+}

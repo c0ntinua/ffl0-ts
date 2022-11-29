@@ -6,7 +6,7 @@ function randomLayerSystem(num_layers) {
     return layer_system;
 }
 function randomLayer() {
-    let layer = new Array(global_rows * global_cols).fill(0);
+    let layer = new Float64Array(global_rows * global_cols);
     for (let i = 0; i < layer.length; i++) {
         layer[i] = 1.0 - 2.0 * Math.random();
     }
