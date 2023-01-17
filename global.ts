@@ -5,6 +5,7 @@ let global_rows = 100;let global_cols = 250;
 
 let num_layers = 3;let layer_system = randomLayerSystem(num_layers);
 let num_filters = 12;let filter_system = randomFilterSystem(num_filters);
+let buffer = blankLayer();
 
 let pixel_height  = Math.floor(canvas.height/global_rows);
 let pixel_width   = Math.floor(canvas.width/global_cols);

@@ -6,7 +6,7 @@ function updatePlot() {
         layer_system[target_layer] = applyFilter(filter_system[f],layer_system[target_layer]);
     }
     plotMonochrome();
-    // preparePlot();
+    // preparePlotAlt();
     // performPlot();
     console.log(Date.now() - clock);
     clock = 0;

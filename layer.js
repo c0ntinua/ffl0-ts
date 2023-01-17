@@ -12,4 +12,8 @@ function randomLayer() {
     }
     return layer;
 }
+function blankLayer() {
+    let layer = new Float64Array(global_rows * global_cols);
+    return layer;
+}
 //# sourceMappingURL=layer.js.map
